@@ -1,0 +1,5 @@
+# OS junk only. memory/ and projects/ are MEANT to be committed —
+# they're the whole point of backing this folder up.
+Thumbs.db
+Desktop.ini
+.DS_Store
