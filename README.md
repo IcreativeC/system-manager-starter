@@ -13,8 +13,8 @@ edit, and delete yourself.
 - A `projects/` list — the things you're working on, with statuses that stay current
 - A `/wrap-up` command — end a session with everything filed away
 
-No accounts beyond Claude itself, no cloud services, no telemetry. Just files in a folder
-you own.
+No accounts beyond Claude itself, no cloud services required, no telemetry. Just files in
+a folder you own.
 
 ## What you need (the honest part)
 

@@ -5,8 +5,10 @@ description: The install wizard for this workspace. Use when the user types /set
 
 # /setup — the install wizard
 
-You are an installer. Behave like one: numbered pages ("Step 2 of 4"), one page per
-message, friendly and plain — the user may never have used a terminal before. **Write
+You are an installer. Behave like one: numbered pages — label them "Step N of 4" on the
+Express path or "Step N of 5" on Custom, counting About you · Projects · Memory ·
+[Preferences] · Ready — one page per message, friendly and plain; the user may never have
+used a terminal before. **Write
 NOTHING to disk until the final "install" confirmation.** All answers live in the
 conversation until then. If the user disappears mid-interview, nothing has changed and
 `/setup` restarts clean — that is by design.
@@ -68,9 +70,9 @@ request* · git backup = **off** · wrap-up reminders = **on (gentle)**. Go to t
 - Q7: "For each project you named: is it *active* right now, *on hold*, or *just an
   idea*?" (one compact list)
 - Q8: "Want me to back this folder up with **git** — a save-history tool — so nothing is
-  ever lost? It stays on this computer (and optionally a private GitHub page only you can
-  see). **(a)** Yes **(b)** No **(c)** What's git?" — on (c), explain in one plain
-  paragraph, then re-ask.
+  ever lost? It stays on this computer. **(a)** Yes **(b)** No **(c)** What's git?" — on
+  (c), explain in one plain paragraph, then re-ask. (A private GitHub backup can be
+  connected later — mention it only if they ask.)
 - Q9: "There's a `/wrap-up` command that files away what we learned at the end of a
   session. Want me to **(a)** remind you to run it when we seem done **(b)** leave it to
   you **(c)** skip the habit entirely?"
@@ -86,7 +88,20 @@ items · answer style · git backup on/off · reminders on/off. Then:
 
 ## The write pass (only after they type "install") — single pass, this exact order
 
-Fill `{{PLACEHOLDERS}}` from the answers; `{{DATE}}` = today, YYYY-MM-DD.
+Fill `{{PLACEHOLDERS}}` from the answers — exact mappings, nothing invented:
+
+- `{{DATE}}` = today, YYYY-MM-DD · `{{NAME}}` = Q1 · `{{BIO}}` and `{{Q2_ANSWER}}` = Q2 in
+  their own words
+- `{{STYLE}}` = one sentence from Q6 plus any Q10 tone notes; Express default: "Short
+  answer first; expand only if I ask."
+- `{{GIT_BACKUP}}` and `{{REMINDERS}}` = the literal word `on` or `off` — the wrap-up
+  skill reads these values, so don't get creative
+- `{{REMINDER_RULE}}` = if reminders are on: "When a session winds down, gently suggest
+  /wrap-up once — don't nag." If off: omit the line entirely.
+- `{{ALWAYS_REMEMBER}}` = Q5 items as bullets, or "nothing recorded yet"
+- `{{ABOUT_SUMMARY}}` = one line combining Q2 and Q5
+- `{{PROJECT_ROWS}}` = one `| name | Status | what it is |` row per Q4 project — "what it
+  is" stays in the user's own phrasing, don't embellish; Express: every status `Active`
 
 1. Copy the current root `CLAUDE.md` to `_setup/original-CLAUDE.md` (skip if that file
    already exists — never overwrite it).
@@ -98,7 +113,8 @@ Fill `{{PLACEHOLDERS}}` from the answers; `{{DATE}}` = today, YYYY-MM-DD.
 6. Write the root `CLAUDE.md` from `_setup/templates/CLAUDE.template.md` — this replaces
    the bootstrap and is the moment the folder becomes theirs.
 7. Git hygiene, silently and only if a `.git` folder exists: `git remote remove origin`
-   (their folder must stop pointing at the public starter repo). If they opted INTO git
+   (their folder must stop pointing at the public starter repo; ignore a "No such remote"
+   error — a ZIP-download folder has none). If they opted INTO git
    backup: `git add -A` and commit `workspace created by /setup`. If git isn't installed
    at all: skip everything in this step and (if they opted in) mention in one friendly
    line that backup needs git and can be set up later — do not treat it as an error.

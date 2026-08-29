@@ -79,13 +79,14 @@ cloud sync fights this setup.
   button → **Download ZIP** → extract it to the location above, and rename the folder to
   `system-manager` if you like.
 
-✅ **Check:** the folder contains `README.md` and a `.claude` folder (hidden files may need
-"show hidden items" turned on — or just trust the README being there).
+✅ **Check:** the folder contains `README.md`. (There's also a `.claude` folder — on Mac,
+press Cmd+Shift+. in Finder to see dot-files — but seeing README.md is proof enough.)
 
 ## 6. Run the wizard
 
 Open a terminal **in that folder** (Windows: open the folder in File Explorer, click the
-address bar, type `powershell`, Enter · Mac: drag the folder onto Terminal), then:
+address bar, type `powershell`, Enter · Mac: in Terminal type `cd ` — with a trailing
+space — then drag the folder into the window and press Enter), then:
 
 ```
 claude
