@@ -43,7 +43,7 @@ it top to bottom — it walks you from nothing to ready, with a ✅ check at eve
 2. Open a terminal in that folder and run: `claude`
 3. Type: `/setup`
 
-That's it. The wizard takes about 5 minutes, shows you a summary before it writes anything,
+That's it. The wizard takes about 10 minutes, shows you a summary before it writes anything,
 and nothing is saved until you approve it.
 
 ## After setup

@@ -1,12 +1,13 @@
 # Memory index
 
-One row per fact file. Update the row whenever the file changes.
+One row per fact file. Update the row whenever the file changes. Paths are relative to the
+workspace root.
 
 | Topic | One-line summary | File |
 |-------|------------------|------|
-| About {{NAME}} | {{ABOUT_SUMMARY}} | about-me.md |
+| About {{NAME}} | {{ABOUT_SUMMARY}} | memory/about-me.md |
 
 ## Rules
 - One topic per file; short kebab-case filenames.
-- Every file gets an index row here — a file without a row is invisible next session.
-- Facts land here via `/wrap-up`. If a fact changes, edit its file — don't add a duplicate.
+- Every file gets an index row here - a file without a row is invisible next session.
+- Facts land here via `/wrap-up`. If a fact changes, edit its file - don't add a duplicate.

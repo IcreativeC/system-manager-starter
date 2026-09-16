@@ -71,13 +71,13 @@ Put it in your home folder — `C:\Users\<you>\system-manager` (Windows) or
 `~/system-manager` (Mac). **Not** Documents or Desktop if OneDrive/iCloud syncs them —
 cloud sync fights this setup.
 
-- **With git:**
+- **Download ZIP (the default - use this unless you already use git):** on the GitHub page,
+  green **Code** button → **Download ZIP** → extract it to the location above. The extracted
+  folder is called `system-manager-starter-main`; rename it to `system-manager`.
+- **With git** (only if you already have it):
   ```
   git clone https://github.com/IcreativeC/system-manager-starter.git system-manager
   ```
-- **Without git** (no idea what git is? use this path): on the GitHub page, green **Code**
-  button → **Download ZIP** → extract it to the location above, and rename the folder to
-  `system-manager` if you like.
 
 ✅ **Check:** the folder contains `README.md`. (There's also a `.claude` folder — on Mac,
 press Cmd+Shift+. in Finder to see dot-files — but seeing README.md is proof enough.)
@@ -98,5 +98,5 @@ and type:
 /setup
 ```
 
-Answer the questions — about 5 minutes, and nothing is saved until you approve the summary
+Answer the questions — about 10 minutes, and nothing is saved until you approve the summary
 at the end. Welcome home. 🏠

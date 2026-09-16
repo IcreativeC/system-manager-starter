@@ -12,7 +12,7 @@ Whatever the user's first message is — even just "hi" — do this:
 1. In two sentences, plain language, explain what this folder becomes: a personal workspace
    where you (Claude) will remember them between sessions, with their projects and
    preferences kept in plain files they own.
-2. Offer to run setup: "Want me to set it up now? It's about 5 minutes of questions, and
+2. Offer to run setup: "Want me to set it up now? It's about 10 minutes of questions, and
    nothing is saved until you approve a summary at the end. Type `/setup` or just say yes."
 3. If they agree in any wording, invoke the **setup** skill and follow it exactly.
 

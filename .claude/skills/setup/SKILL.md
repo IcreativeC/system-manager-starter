@@ -29,7 +29,7 @@ Read the first line of the root `CLAUDE.md`:
 ## Page 1 — Welcome (no questions)
 
 > Welcome! I'm going to set up this folder as your personal home base — a place where I
-> remember who you are, what you're working on, and how you like to work. About 5 minutes,
+> remember who you are, what you're working on, and how you like to work. About 10 minutes,
 > and nothing is saved until you approve a summary at the end.
 >
 > **1) Express setup** — 5 quick questions, sensible defaults *(recommended)*
@@ -53,12 +53,20 @@ Read the first line of the root `CLAUDE.md`:
 - Q4: "Name 2 or 3 things you're actually working on (or want to be) right now — one line
   each. Example: 'learn guitar', 'plan the spring trip', 'fix my resume'. These become
   your first registered projects."
+  - **If they name nothing** ("nothing", "not sure", a shrug): ask once more, plainly —
+    "No problem. What's one thing you'd want help with this week?" If that is still
+    nothing, say: "Okay — your project list will start with one placeholder row so it's
+    never empty; the first thing you bring up in a session goes there." Then move on.
+    Never write a bare table (see the write pass).
 
-## Page 4 — Memory (both paths)
+## Page 4 — Memory and boundaries (both paths)
 
 - Q5: "Is there anything I should *always* remember about you — the stuff you'd be
   annoyed to repeat every time? (Schedule, family, tools you use, things you never want
   suggested.) Totally fine to say 'nothing yet.'"
+- Q-B (the boundary): "Last one on this page. **Outside this folder**, may I **(a)** read
+  only, **(b)** change things when you approve each one, or **(c)** go ahead? Most people
+  pick (b)." If they shrug or skip it, use **(b)**.
 
 **Express path ends here.** Apply defaults: answer style = *short answer first, details on
 request* · git backup = **off** · wrap-up reminders = **on (gentle)**. Go to the Ready page.
@@ -82,46 +90,81 @@ request* · git backup = **off** · wrap-up reminders = **on (gentle)**. Go to t
 ## Final page — Ready to install
 
 Show an installer-style review: name · one-line bio · project list with statuses · memory
-items · answer style · git backup on/off · reminders on/off. Then:
+items · boundary answer · answer style · git backup on/off · reminders on/off. Then:
 
 > Type **install** to create your workspace, or tell me anything to change.
 
 ## The write pass (only after they type "install") — single pass, this exact order
 
-Fill `{{PLACEHOLDERS}}` from the answers — exact mappings, nothing invented:
+**Tools, pinned:** write every file with the **Write** tool (it is pre-allowed for this
+folder, so it never prompts). The only shell commands in this whole skill are the git
+lines in step 7 — never write a file through the shell.
+
+Fill `{{PLACEHOLDERS}}` from the answers — exact mappings, nothing invented. Use plain
+ASCII punctuation in everything you write (a hyphen, not a long dash; straight quotes):
 
 - `{{DATE}}` = today, YYYY-MM-DD · `{{NAME}}` = Q1 · `{{BIO}}` and `{{Q2_ANSWER}}` = Q2 in
   their own words
-- `{{STYLE}}` = one sentence from Q6 plus any Q10 tone notes; Express default: "Short
-  answer first; expand only if I ask."
+- `{{STYLE}}` = one sentence from Q6 plus any Q10 tone notes; Express default, verbatim:
+  `Short answer first; expand only if I ask.`
 - `{{GIT_BACKUP}}` and `{{REMINDERS}}` = the literal word `on` or `off` — the wrap-up
   skill reads these values, so don't get creative
-- `{{REMINDER_RULE}}` = if reminders are on: "When a session winds down, gently suggest
-  /wrap-up once — don't nag." If off: omit the line entirely.
-- `{{ALWAYS_REMEMBER}}` = Q5 items as bullets, or "nothing recorded yet"
-- `{{ABOUT_SUMMARY}}` = one line combining Q2 and Q5
+- `{{REMINDER_RULE}}` = if reminders are on, verbatim: `When a session winds down, gently
+  suggest /wrap-up once - don't nag.` If off: omit the line entirely.
+- `{{AUTHORITY}}` = exactly one of these three lines, from Q-B:
+  - (a) `Outside this folder I may read only.`
+  - (b) `Outside this folder I may change things when you approve each one.`
+  - (c) `Outside this folder I may go ahead.`
+- `{{ALWAYS_REMEMBER}}` = Q5 items **verbatim, in their words** (no rephrasing, no
+  trimming), one bullet per line, each indented two spaces (`  - fact`) so they nest under
+  "Always remember:"; if nothing: `  - nothing recorded yet`
+- `{{ABOUT_SUMMARY}}` = Q2, then ` Always remember: ` and the Q5 items joined with `; `.
+  If Q5 is empty, Q2 alone.
 - `{{PROJECT_ROWS}}` = one `| name | Status | what it is |` row per Q4 project — "what it
-  is" stays in the user's own phrasing, don't embellish; Express: every status `Active`
+  is" stays in the user's own phrasing (if they gave only a name, repeat the name); don't
+  embellish; Express: every status `Active`. **If Q4 ended with nothing**, exactly one row:
+  `| First project | Idea | Nothing named at setup - the first thing you bring up in a session goes here; /wrap-up will offer it. |`
 
 1. Copy the current root `CLAUDE.md` to `_setup/original-CLAUDE.md` (skip if that file
    already exists — never overwrite it).
-2. Write `_setup/answers.md`: date, Express/Custom, every question and answer verbatim.
+2. Write `_setup/answers.md` in this shape (every question asked, answer verbatim; omit
+   lines for questions that were not asked on this path):
+   ```
+   # Setup answers (personalized on YYYY-MM-DD)
+   Path: Express
+   Q1 Name: ...
+   Q2 Spends time on: ...
+   Q3 Projects mean: ...
+   Q4 Projects:
+   - name - what it is      (just the name if that is all they gave; never repeat it)
+   Q5 Always remember:
+   - fact                   (verbatim)
+   Q-authority: (b) change things when you approve each one
+   Q6 Answer style: ...   (Custom only; likewise Q7 statuses, Q9 reminders, Q10 tone)
+   Q8 Git backup: off
+   Defaults applied: answer style = short first; wrap-up reminders = on.
+   ```
 3. Write `memory/about-me.md` from `_setup/templates/memory-about-me.template.md`.
 4. Write `memory/MEMORY.md` from `_setup/templates/MEMORY.template.md`.
 5. Write `projects/projects.md` from `_setup/templates/projects.template.md` — one row
    per named project (Custom: use their statuses; Express: all `Active`).
 6. Write the root `CLAUDE.md` from `_setup/templates/CLAUDE.template.md` — this replaces
    the bootstrap and is the moment the folder becomes theirs.
-7. Git hygiene, silently and only if a `.git` folder exists: `git remote remove origin`
-   (their folder must stop pointing at the public starter repo; ignore a "No such remote"
-   error — a ZIP-download folder has none). If they opted INTO git
-   backup: `git add -A` and commit `workspace created by /setup`. If git isn't installed
-   at all: skip everything in this step and (if they opted in) mention in one friendly
-   line that backup needs git and can be set up later — do not treat it as an error.
+7. Git hygiene, silently and only if a `.git` folder exists: run exactly
+   `git remote remove origin` — nothing appended, no redirection. A "No such remote"
+   error is expected and fine (a ZIP-download folder has none; so does a folder set up
+   for someone else). If they opted INTO git backup: if `git config user.email` prints
+   nothing, first run `git config user.name "<Q1 name>"` and
+   `git config user.email "<Q1 name, lowercased, no spaces>@localhost"` (repo-local, so
+   the first commit cannot fail on a fresh machine); then `git add -A` and commit
+   `workspace created by /setup`. If git isn't installed at all: skip everything in this
+   step and (if they opted in) mention in one friendly line that backup needs git and can
+   be set up later — do not treat it as an error.
 
 ## Finish page
 
-List the files just created, then:
+List the files just created (and, if Q4 was empty, say the project list holds one
+placeholder row), then:
 
 > Three things to try right now:
 > ① Ask me anything about one of your projects.
