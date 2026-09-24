@@ -40,7 +40,9 @@ Status `Done` and **stay** — rows are history, not clutter. Only a *destructiv
 ## 3. Back up — only if CLAUDE.md's Settings say git backup is on
 
 `git add -A`, then commit: `wrap-up YYYY-MM-DD: <five-word summary>`. Push only if a
-remote exists. If git is missing or anything here fails: one friendly line ("backup
+remote exists — if backup is on but there is no remote, say so in one line ("backed up on
+this computer only - no GitHub connection yet") so they know their history lives only on
+this machine. If git is missing or anything here fails: one friendly line ("backup
 skipped — <reason>") and move on. **Never fail the wrap-up over backup.**
 
 ## 4. Summary

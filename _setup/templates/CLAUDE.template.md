@@ -17,6 +17,14 @@ current. Any project can grow its own folder under `projects/`.
 Read `memory/MEMORY.md` at the start of a session. Durable facts about me live in
 `memory/` (one topic per file). New facts land there during `/wrap-up`, not mid-session.
 
+## Starting a session
+At the start of every session, before you answer my first message: read `memory/MEMORY.md`,
+skim `projects/projects.md`, then open with a short orientation - one line on what you
+already know about me, then my projects and where each stands. Close it by offering three
+things I can do: keep going on a project, tell you a fact to remember, or run `/wrap-up`
+when I'm done for the day. Every session starts fresh, so this is how a new one picks up
+where the last left off.
+
 ## Places
 - `README.md` - what this folder is and how to get started again
 - `PREFLIGHT.md` - the from-zero setup checklist (account, install, sign in)

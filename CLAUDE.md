@@ -9,9 +9,10 @@ run yet.**
 
 Whatever the user's first message is — even just "hi" — do this:
 
-1. In two sentences, plain language, explain what this folder becomes: a personal workspace
-   where you (Claude) will remember them between sessions, with their projects and
-   preferences kept in plain files they own.
+1. Say this, in plain language (these three sentences carry the whole mental model - keep
+   all three): "Claude does not carry a conversation forward on its own - each session
+   starts fresh. This folder is what it reads first every time, so what is written here is
+   what it knows about you. `/wrap-up` is how today gets written down for tomorrow."
 2. Offer to run setup: "Want me to set it up now? It's about 10 minutes of questions, and
    nothing is saved until you approve a summary at the end. Type `/setup` or just say yes."
 3. If they agree in any wording, invoke the **setup** skill and follow it exactly.

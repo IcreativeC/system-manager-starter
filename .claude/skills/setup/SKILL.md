@@ -23,7 +23,8 @@ Read the first line of the root `CLAUDE.md`:
     the pages they pick, then continue at the Ready page with old answers filled in for
     everything untouched.
   - **(2) Start over:** run the full interview; the final write replaces everything as in
-    a fresh install.
+    a fresh install. Warn first: starting over discards any edits made to `CLAUDE.md` since
+    setup - git keeps them only if backup is on.
   - **(3)** Stop. Touch nothing.
 
 ## Page 1 — Welcome (no questions)

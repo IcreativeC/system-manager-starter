@@ -5,6 +5,12 @@ are, what you're working on, and how you like to work. Set up by answering a few
 in an install-wizard-style walkthrough. Everything ends up in plain files you can open,
 edit, and delete yourself.
 
+## How this works
+
+Claude does not carry a conversation forward on its own - each session starts fresh. This
+folder is what it reads first every time, so what is written here is what it knows about
+you. `/wrap-up` is how today gets written down for tomorrow.
+
 ## What you get
 
 - A personalized `CLAUDE.md` — Claude reads it at the start of every session, so you never
@@ -40,7 +46,8 @@ it top to bottom — it walks you from nothing to ready, with a ✅ check at eve
    setup fight each other.)*
    - With git: `git clone https://github.com/IcreativeC/system-manager-starter.git system-manager`
    - Without git: green **Code** button above → **Download ZIP** → extract it there
-2. Open a terminal in that folder and run: `claude`
+2. Open a terminal in that folder and run: `claude` — or, in the Claude desktop app, open
+   this folder as a project in the Code tab
 3. Type: `/setup`
 
 That's it. The wizard takes about 10 minutes, shows you a summary before it writes anything,
@@ -52,6 +59,9 @@ and nothing is saved until you approve it.
 - When a session winds down, type `/wrap-up` — that's what keeps the memory and project
   list current
 - Change your answers anytime by typing `/setup` again
+- One folder, one branch. If the app offers to work in a separate copy of this folder, say
+  no — or bring your changes back before you `/wrap-up`, so they land in the memory Claude
+  actually reads
 
 ## License
 

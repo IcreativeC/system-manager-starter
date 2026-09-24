@@ -6,6 +6,12 @@ passes. If a friend is helping you, they can read this aloud and drive.
 > **Who this is for:** a personal computer you control (Windows or Mac). A managed work
 > laptop that blocks installers won't work — stop here and use a personal machine instead.
 
+## 0. How this works (30 seconds)
+
+Claude does not carry a conversation forward on its own - each session starts fresh. This
+folder is what it reads first every time, so what is written here is what it knows about
+you. `/wrap-up` is how today gets written down for tomorrow.
+
 ## 1. Claude account — and the honest cost
 
 Go to [claude.ai](https://claude.ai) and sign up (or sign in).
@@ -84,9 +90,12 @@ press Cmd+Shift+. in Finder to see dot-files — but seeing README.md is proof e
 
 ## 6. Run the wizard
 
-Open a terminal **in that folder** (Windows: open the folder in File Explorer, click the
-address bar, type `powershell`, Enter · Mac: in Terminal type `cd ` — with a trailing
-space — then drag the folder into the window and press Enter), then:
+**Desktop app (Claude Desktop):** open this folder as a project in the Code tab, then type
+`/setup` — you can skip the terminal instructions below.
+
+**Terminal:** open a terminal **in that folder** (Windows: open the folder in File Explorer,
+click the address bar, type `powershell`, Enter · Mac: in Terminal type `cd ` — with a
+trailing space — then drag the folder into the window and press Enter), then:
 
 ```
 claude
